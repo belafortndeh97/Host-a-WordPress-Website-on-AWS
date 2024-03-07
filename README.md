@@ -183,35 +183,59 @@ sudo systemctl start httpd
 
 # Install PHP 8 and necessary extensions for WordPress
 sudo dnf install -y \
+
 php \
+
 php-cli \
+
 php-cgi \
+
 php-curl \
+
 php-mbstring \
+
 php-gd \
+
 php-mysqlnd \
+
 php-gettext \
+
 php-json \
+
 php-xml \
+
 php-fpm \
+
 php-intl \
+
 php-zip \
+
 php-bcmath \
+
 php-ctype \
+
 php-fileinfo \
+
 php-openssl \
+
 php-pdo \
+
 php-tokenizer
 
 # Install MySQL 8 repository and server
 sudo wget https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+
 sudo dnf install -y mysql80-community-release-el9-1.noarch.rpm
+
 sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+
 sudo dnf repolist enabled | grep "mysql.*-community.*"
+
 sudo dnf install -y mysql-community-server
 
 # Start and enable the MySQL server
 sudo systemctl start mysqld
+
 sudo systemctl enable mysqld
 
 # Environment variable for EFS DNS name
